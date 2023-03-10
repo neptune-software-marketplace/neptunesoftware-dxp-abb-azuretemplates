@@ -1,0 +1,17 @@
+if (typeof importance === "undefined" || importance === null || importance === "") { return; }  
+var formattedText = importance; 
+
+switch (formattedText) {
+
+    case 'normal':
+        return "sap-icon://fa-solid/arrows-alt-h"
+        break;
+
+    case 'high':
+        return "sap-icon://fa-solid/arrow-up"
+        break;
+        
+    case 'low':
+        return "sap-icon://fa-solid/arrow-down";
+        break;
+}

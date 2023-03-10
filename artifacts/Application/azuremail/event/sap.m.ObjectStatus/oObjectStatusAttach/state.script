@@ -1,0 +1,5 @@
+if (typeof attachments === "undefined" || attachments === null || attachments === "") { return; }  
+var formattedText = attachments; 
+
+if (formattedText) return "Warning";
+else return "None";

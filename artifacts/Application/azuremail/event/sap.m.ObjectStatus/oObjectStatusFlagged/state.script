@@ -1,0 +1,4 @@
+if (typeof flag === "undefined" || flag === null || flag === "") { return; }  
+var formattedText = flag; 
+if (formattedText) return "Error";
+else return "Success";

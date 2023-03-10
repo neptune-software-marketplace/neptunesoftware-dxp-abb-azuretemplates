@@ -1,0 +1,5 @@
+if (typeof isRead === "undefined" || isRead === null || isRead === "") { return; }  
+var formattedText = isRead; 
+// if (formattedText) return "Success";
+// else return "Error";
+return "None";

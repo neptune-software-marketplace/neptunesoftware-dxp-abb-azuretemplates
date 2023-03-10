@@ -1,0 +1,8 @@
+const folderName = oInputFolderName.getValue();
+if (folderName) {
+    oDialogFolder.close();
+    createFolder(folderName, getCurrentPath());
+} else {
+    sap.m.MessageToast.show("Please provide a folder name ?");
+    oInputFolderName.focus();
+}

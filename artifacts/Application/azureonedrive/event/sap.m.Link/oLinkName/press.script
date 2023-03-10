@@ -1,0 +1,8 @@
+var clickedObject = oEvent.getSource().getBindingContext().getObject();
+var isFolder = clickedObject.isFolder;
+var fullPath = `${clickedObject.fullPath}/${clickedObject.name}:`;
+if (isFolder) {
+    breadcrumbNavigate(fullPath);
+}else{
+    downloadFile(clickedObject)
+}

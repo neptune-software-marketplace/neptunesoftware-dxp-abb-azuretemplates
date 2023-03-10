@@ -1,0 +1,73 @@
+const context = oEvent.oSource.getBindingContext();
+const mailItem = context.getObject();
+//console.log(mailItem);
+txtTitleDetail.setText(mailItem.subject);
+modeloPageDetail.setData(mailItem);
+modeloPageDetail.refresh(true);
+sap.ui.core.BusyIndicator.show(0);
+oHTMLObject.setContent("");
+//const endpoint = `https://graph.microsoft.com/v1.0/me/messages/${mailItem.id}/attachments/?$filter=isInline eq true`;
+const endpoint = `https://graph.microsoft.com/v1.0/me/messages/${mailItem.id}/attachments/?$top=999`;
+const headers = { Authorization: `${token}` };
+$.ajax({
+    url: endpoint,
+    type: "GET",
+    dataType: "json",
+    headers,
+    success: (data) => {
+        var inlineImgArr = data.value;
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(mailItem.body, "text/html");
+        if (inlineImgArr.length > 0) {
+            //console.log(inlineImgArr);
+
+            var normalAttachnments = inlineImgArr.filter((el) => !el.isInline);
+            normalAttachnments.forEach((attach) => {
+                attach.sizeText = oFileSizeFormat.format(attach.size);
+                attach.modifiedDateFormatted = new Date(
+                    attach.lastModifiedDateTime
+                ).toLocaleString();
+            });
+
+            //console.log("normal attach", normalAttachnments);
+
+            if (normalAttachnments.length > 0) {
+                modeloGridList.setData(normalAttachnments);
+                modeloGridList.refresh();
+                oGridList.setVisible(true);
+            } else {
+                oGridList.setVisible(false);
+            }
+        } else {
+            oGridList.setVisible(false);
+        }
+        if (mailItem.bodyHTML) {
+            var images = doc.querySelectorAll("img");
+
+            for (var i = 0; i < images.length; i++) {
+                var foundImg = inlineImgArr.find((el) => el.contentId === images[i].src.substr(4));
+                if (foundImg)
+                    images[i].src = `data:${foundImg.contentType};base64, ${foundImg.contentBytes}`;
+            }
+            oHTMLObject.setContent(new XMLSerializer().serializeToString(doc));
+            oHTMLObject.setVisible(true);
+            oText.setVisible(false);
+            sap.ui.core.BusyIndicator.hide();
+            oPageDetail.scrollTo(0);
+            navigateToDetail();
+        } else {
+            //console.log("here....");
+            oHTMLObject.setContent(null);
+            oHTMLObject.setVisible(false);
+            oText.setVisible(true);
+            oText.setText(mailItem.body);
+            sap.ui.core.BusyIndicator.hide();
+            oPageDetail.scrollTo(0);
+            navigateToDetail();
+        }
+    },
+    error: (error) => {
+        console.log(error);
+        sap.ui.core.BusyIndicator.hide();
+    },
+});

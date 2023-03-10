@@ -1,0 +1,7 @@
+if (typeof flag === "undefined" || flag === null || flag === "") {
+    return;
+}
+var formattedText = flag;
+
+if (formattedText) return "sap-icon://flag";
+else return "";

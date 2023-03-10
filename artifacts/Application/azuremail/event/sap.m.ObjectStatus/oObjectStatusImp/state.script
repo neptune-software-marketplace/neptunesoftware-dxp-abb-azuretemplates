@@ -1,0 +1,17 @@
+if (typeof importance === "undefined" || importance === null || importance === "") { return; }  
+var formattedText = importance; 
+
+switch (formattedText) {
+
+    case 'normal':
+        return "Success"
+        break;
+
+    case 'high':
+        return "Error"
+        break;
+        
+    case 'low':
+        return "Warning";
+        break;
+}

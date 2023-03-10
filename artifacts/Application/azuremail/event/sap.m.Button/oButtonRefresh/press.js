@@ -1,0 +1,2 @@
+readMail();
+closeDetail();

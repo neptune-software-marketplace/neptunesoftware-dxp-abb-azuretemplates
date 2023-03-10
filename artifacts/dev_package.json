@@ -1,0 +1,67 @@
+{
+	"id": "6de212ee-01bd-ed11-a8e0-000d3ada944e",
+	"createdAt": "2023-03-07T16:05:51.543Z",
+	"createdBy": "abesh@neptune-software.com",
+	"git": {
+		"remote": "https://github.com/neptune-software-marketplace/neptunesoftware-dxp-abb-azuretemplates"
+	},
+	"name": "neptunesoftware-dxp-abb-azuretemplates",
+	"description": "Microsoft Azure building Blocks for Neptune Marketplace",
+	"ver": "23.3.10.1414",
+	"enableCICD": true,
+	"apps": [
+		{
+			"id": "cb7381bc-89ad-ed11-a8e0-000d3ada944e",
+			"application": "azurecalendar",
+			"title": "Microsoft Outlook Calendar",
+			"description": ""
+		},
+		{
+			"id": "b1ece0f7-1aae-ed11-a8e0-000d3ada944e",
+			"application": "azuremail",
+			"title": "Microsoft Outlook Mail",
+			"description": ""
+		},
+		{
+			"id": "3c756574-06b2-ed11-a8e0-000d3ada944e",
+			"application": "azureonedrive",
+			"title": "Microsoft OneDrive",
+			"description": ""
+		},
+		{
+			"id": "17353ce1-c8ab-ed11-a8e0-000d3ada944e",
+			"application": "powerbiprivate",
+			"title": "Power BI Private",
+			"description": ""
+		}
+	],
+	"api": [],
+	"odataSource": [],
+	"odataMock": [],
+	"dictionary": [],
+	"jsclass": [],
+	"jsscript_group": [],
+	"theme": [],
+	"pdf": [],
+	"rulesengine": [],
+	"reports": [],
+	"api_authentication": [],
+	"api_group": [],
+	"tile": [],
+	"category": [],
+	"launchpad": [],
+	"certificates": [],
+	"role": [],
+	"systems": [],
+	"doc": [],
+	"wf_notifications": [],
+	"department": [],
+	"script_scheduler": [],
+	"wf_definition": [],
+	"connector": [],
+	"events": [],
+	"media_library": [],
+	"code_snippets": [],
+	"wf_determination": [],
+	"wf_taskaction": []
+}

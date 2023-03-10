@@ -1,0 +1,4 @@
+if (typeof sendername === "undefined" || sendername === null || sendername === "") { return; }  
+if (typeof senderemail === "undefined" || senderemail === null || senderemail === "") { return; }  
+var formattedText = sendername + "(" + senderemail + ")"; 
+return formattedText;
