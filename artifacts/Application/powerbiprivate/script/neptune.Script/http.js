@@ -7,7 +7,7 @@ function getReports() {
         type: 'GET',
         dataType: 'json',
         success: function(data) {
-            console.log('Data: ', data.value);
+            //console.log('Data: ', data.value);
             if (data.value.length > 0) {
                 var reportId = data.value[0].id;
                 embedReport(token, reportId);

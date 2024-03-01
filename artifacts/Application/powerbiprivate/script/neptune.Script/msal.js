@@ -9,7 +9,7 @@ function signIn() {
         aadApplication
             .acquireTokenSilent(tokenRequest)
             .then((response) => {
-                console.log("silent token", response);
+                //console.log("silent token", response);
                 token = response.accessToken;
                 getReports();
                 //embedReport(response.accessToken, reportId);
@@ -18,7 +18,7 @@ function signIn() {
                 console.log("failed to get token : ", err);
                 if (err instanceof msal.InteractionRequiredAuthError) {
                     aadApplication.acquireTokenPopup(loginScopes).then((response) => {
-                        console.log("auth token", response);
+                        //console.log("auth token", response);
                         token = response.accessToken;
                         getReports();
                         //embedReport(response.accessToken, reportId);
@@ -32,7 +32,7 @@ function signIn() {
         aadApplication
             .loginPopup(loginScopes)
             .then((response) => {
-                console.log("auth token", response);
+                //console.log("auth token", response);
                 token = response.accessToken;
                 getReports();
                 //embedReport(response.accessToken, reportId);

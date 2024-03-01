@@ -364,11 +364,25 @@
 		},
 		{
 			"fieldNo": 99998,
-			"data": []
+			"data": [
+				{
+					"fieldNo": "2726e7ef-9c56-455e-ce51-8e636fa49b56",
+					"fieldName": "ReadMe",
+					"fieldParent": 99998,
+					"fieldType": "neptune.Text",
+					"script": "file://script/neptune.Text/ReadMe.txt",
+					"customComponent": false,
+					"filePath": "readme",
+					"request": [],
+					"response": [],
+					"attributes": [],
+					"data": []
+				}
+			]
 		}
 	],
 	"componentInterface": [],
-	"ver": "23.3.7.106",
+	"ver": "24.03.01.1147",
 	"application": "powerbiprivate",
 	"title": "Power BI Private",
 	"description": "",
@@ -407,6 +421,8 @@
 	"compilerTarget": 3,
 	"tabWidth": null,
 	"printWidth": null,
+	"generateVersionOnActivation": false,
+	"activationHistoryCount": 0,
 	"apis": [],
 	"package": "6de212ee-01bd-ed11-a8e0-000d3ada944e"
 }

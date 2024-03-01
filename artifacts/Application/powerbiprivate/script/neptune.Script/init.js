@@ -1,18 +1,19 @@
 var reportId;
-const clientId = "78c9f7c5-a236-41fd-b4c2-3a5000d26c7e";
-const tenantId = "8fdb51da-e45d-423f-ae33-cf92118d5311";
+const clientId = "Your Application (client) ID";
+const tenantId = "Your tenant Id";
 
 const msalConfig = {
     auth: {
         clientId: clientId,
         authority: `https://login.microsoftonline.com/${tenantId}`,
-        redirectUri: "https://gtmdemosystem.neptune-software.cloud/", //"https://gtmdemosystem.neptune-software.cloud/public/azure_redirect.html",
+        redirectUri: "redirect URL, same you configured on Microsoft Entra admin center ", 
     },
     cache: {
         cacheLocation: "sessionStorage", // This configures where your cache will be stored
         storeAuthStateInCookie: false, // Set this to "true" if you're having issues on Internet Explorer 11 or Edge
     }
 };
+
 
 // Add scopes for the ID token to be used at Microsoft identity platform endpoints.
 const loginScopes = {
@@ -75,7 +76,7 @@ function embedReport(token, reportId) {
     });
 
     report.on('loaded', () => {
-        console.log('Loaded !');
+        //console.log('Loaded !');
         //getReports();
     });
 }
